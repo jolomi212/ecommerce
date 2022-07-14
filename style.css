@@ -49,6 +49,9 @@
     font-size: 0.8rem;
     text-align: center;
 }
+.list{
+    display: none;
+}
 
 .cart-page{
     position: absolute;
@@ -340,6 +343,7 @@ border-radius: 0.3rem;
     .list{
         width: 70%;
         height: 100%;
+        display: block;
     }
     .nav-list{
         margin: auto;
