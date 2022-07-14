@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | E-commerce product page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <!--  -->
+  <div class="navbar"><img src="images/icon-menu.svg" alt="" id="menu"><img src="images/logo.svg" alt="" class="logo">
+    <div class="list">
+      <div class="nav-list"> <a href="">Collections</a></div>
+      <div class="nav-list"><a href=""> Men</a></div>
+      <div class="nav-list"><a href=""> Women</a></div>
+      <div class="nav-list"><a href="">About</a></div>
+      <div class="nav-list"><a href="">Contact</a></div>
+    </div>
+    <div class="right"> <div class="cart"><div class="notif hide"></div> <img src="images/icon-cart.svg" alt="" > </div><img src="images/image-avatar.png" alt="" class="avatar"></div></div>
+  <div class="nav-hidden hide">
+    <div class="nav-hide "><img src="images/icon-close.svg" alt=""></div>
+   <li class="nav-list"> <a href="">Collections</a></li>
+    <li class="nav-list"><a href=""> Men</a></li>
+    <li class="nav-list"><a href=""> Women</a></li>
+    <li class="nav-list"><a href="">About</a></li>
+    <li class="nav-list"><a href="">Contact</a></li>
+  
+  </div>
+  <div class="cart-page hide" id="cart-page">
+
+    <p class="cart-head">Cart</p>
+    <hr>
+    <p class="empty">Your Cart is empty</p>
+    <div class="order"> <div class="order-img"> <img src="images/image-product-1-thumbnail.jpg" alt=""> </div>
+    <div class="order-text">
+      <p>Autumn limited Edition</p>
+      <p id="entry">$125</p>
+    </div>
+  <img src="images/icon-delete.svg" alt="" class="delete" id="delete">
+  </div>
+
+  <button class="checkout add">Checkout</button>
+  
+  </div>
+  <hr>
+  <div class="light hide">
+    <div class="container">
+      <div class="close-lt"><img src="images/icon-close.svg" alt="" ></div>
+      <div  id="product2"><img class="product" src="images/image-product-1.jpg" alt=""></div>
+      <div class="scroller">
+ <span id="prev2" class="scroll show"><img src="images/icon-previous.svg" alt=""></span>
+<span id="next2" class="scroll show"> <img src="images/icon-next.svg" alt="" ></span>
+</div>
+<div class="thumbs new"> <img src="images/image-product-1-thumbnail.jpg" alt="" class="thumb"> <img src="images/image-product-2-thumbnail.jpg" alt="" class="thumb"> <img src="images/image-product-3-thumbnail.jpg" alt="" class="thumb"> <img src="images/image-product-4-thumbnail.jpg" alt="" class="thumb"> </div>
+    </div>
+
+  </div>
+<div class="body">
+  <div class="lightbox-container" >
+ <!--  -->
+ <div  id="product" ><img class="product" src="images/image-product-1.jpg" alt=""></div>
+ <span id="prev" class="scroll bg"><img src="images/icon-previous.svg" alt=""></span>
+<span id="next" class="scroll bg"> <img src="images/icon-next.svg" alt="" ></span>
+
+
+<div class="thumbs"> <img src="images/image-product-1-thumbnail.jpg" alt="" class="thumb2"> <img src="images/image-product-2-thumbnail.jpg" alt="" class="thumb2"> <img src="images/image-product-3-thumbnail.jpg" alt="" class="thumb2"> <img src="images/image-product-4-thumbnail.jpg" alt="" class="thumb2"> </div>
+
+
+  </div>
+  <div class="main">
+ <p class="company"> Sneaker Company</p>
+
+ <p class="heading"> Fall Limited Edition Sneakers</p>
+
+ <p class="text"> These low-profile sneakers are your perfect casual wear companion. Featuring a 
+  durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+ <div class="pricing"> <span class="price">$125.00</span>
+  <span class="percent">50%</span>
+  <span class="old"><s>$250.00</s></span></div>
+
+
+
+ <div class="flex-col">
+  <div class="select"><img class="minus" id="minus" src="images/icon-minus.svg" alt=""><span class="num" id="num">0</span><img src="images/icon-plus.svg" alt="" class="plus" id="plus"></div>
+  <button class="add btn" id="add"><img src="images/icon-cart2.svg" alt="" class="cart2"> Add to cart</button>
+  </div>
+</div>
+
+
+  
+ 
+</div>
+ <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Jolomisan</a>.
+  </div>
+
+
+<script>
+let count = 1;
+const thumb = document.querySelectorAll(".thumb");
+const thumb2 = document.querySelectorAll(".thumb2");
+
+
+document.getElementById("menu").addEventListener("click", function(){
+  document.getElementsByClassName('nav-hidden')[0].classList.remove('hide');
+  document.getElementsByClassName("bg")[0].classList.add("bg-color");
+})
+
+document.getElementsByClassName('nav-hide')[0].addEventListener("click", function(){
+  document.getElementsByClassName('nav-hidden')[0].classList.add('hide');
+  document.getElementsByClassName("bg")[0].classList.remove("bg-color");
+
+
+})
+
+document.getElementById('next').addEventListener("click", function(){
+  if (count < 4){
+    count ++ ;
+  }
+  else{
+    count = 1
+  }
+  
+  document.getElementById("product").innerHTML = ` <img class="product" src="images/image-product-${count}.jpg" alt="">"`
+  
+})
+
+document.getElementById('prev').addEventListener("click", function(){
+  if (count > 1){
+    count -- ;
+  }
+  else{
+    count = 4
+  }
+  
+  document.getElementById("product").innerHTML = ` <img class="product" src="images/image-product-${count}.jpg" alt="">"`
+ 
+})
+document.getElementById('next2').addEventListener("click", function(){
+  
+  if (count < 4){
+    count ++ ;
+   
+    
+  }
+  else{
+    
+    count = 1
+   
+  
+  }
+  thumb.forEach(element => {
+        element.border = "none";
+      })
+      thumb[count - 1].border = "2px solid var(---Orange)";
+  document.getElementById("product2").innerHTML = ` <img class="product" src="images/image-product-${count}.jpg" alt="">"`
+  
+     
+       
+       
+})
+
+document.getElementById('prev2').addEventListener("click", function(){
+  if (count > 1){
+    count -- ;
+  }
+  else{
+    count = 4
+  }
+  thumb.forEach(element => {
+        element.border = "none";
+      })
+      thumb[count - 1].border = "2px solid var(---Orange)";
+  document.getElementById("product2").innerHTML = ` <img class="product" src="images/image-product-${count}.jpg" alt="">"`
+ 
+})
+
+let num = document.getElementById("num");
+let select = parseInt(num.innerHTML);
+console.log(select);
+
+
+document.getElementById("plus").addEventListener("click", function(){
+let select = parseInt(num.innerHTML);
+console.log(select);
+num.innerHTML = select + 1;
+
+
+})
+
+document.getElementById("minus").addEventListener("click", function(){
+let select = parseInt(num.innerHTML);
+if (select > 0){
+console.log(select);
+num.innerHTML = select - 1;
+
+}
+})
+
+
+document.getElementById("add").addEventListener("click", function(){
+  let select = parseInt(num.innerHTML);
+  let notif = document.getElementsByClassName("notif")[0];
+  let current = notif.innerHTML;
+  // let temp = notif.innerHTML;
+
+  if (select > 0){
+    if (current === ""){
+    
+    console.log(notif);
+   
+   
+    notif.classList.remove("hide");
+    notif.innerHTML = select;
+    
+    
+  }
+  else{
+    current = parseInt(notif.innerHTML);
+    notif.classList.remove("hide");
+    notif.innerHTML = select + current;
+    console.log(current);
+  }
+  
+  if (document.getElementById("cart-page").style.display !== "none"){
+    let value = parseInt(notif.innerHTML);
+ 
+
+  if(select === value){
+      document.getElementsByClassName("order")[0].classList.remove("hide");
+      document.getElementsByClassName("checkout")[0].classList.remove("hide");
+      document.getElementsByClassName("empty")[0].classList.add("hide")
+      document.getElementById("entry").innerHTML = `
+      $125 * ${select}. <b>$${select * 125}</b>
+      `
+    }
+
+    else{
+      document.getElementById("entry").innerHTML = `
+  $125 * ${value}. <b>$${value * 125}</b>
+  `
+    }
+  }
+  
+
+  }
+ 
+console.log(select);
+
+
+})
+
+
+document.getElementsByClassName("cart")[0].addEventListener("click", function(){
+document.getElementById("cart-page").classList.remove("hide");
+let select = parseInt(num.innerHTML);
+let notif = document.getElementsByClassName("notif")[0];
+let current = notif.innerHTML;
+
+if (current === ""){
+  document.getElementsByClassName("order")[0].classList.add("hide");
+  document.getElementsByClassName("checkout")[0].classList.add("hide");
+  
+}
+else{
+  document.getElementsByClassName("order")[0].classList.remove("hide");
+  document.getElementsByClassName("checkout")[0].classList.remove("hide");
+  document.getElementsByClassName("empty")[0].classList.add("hide");
+  document.getElementById("entry").innerHTML = `
+  $125 * ${select}. <b>$${select * 125}</b>
+  `
+
+
+}
+
+})
+
+
+document.getElementById("delete").addEventListener("click", function(){
+  document.getElementsByClassName("order")[0].classList.add("hide");
+  document.getElementsByClassName("checkout")[0].classList.add("hide");
+  document.getElementsByClassName("empty")[0].classList.remove("hide");
+  document.getElementsByClassName("notif")[0].innerHTML = "";
+  document.getElementsByClassName("notif")[0].classList.add("hide");
+
+})
+
+
+for (let i = 0; i < thumb.length; i++) {
+     thumb[i].addEventListener("click", function() {
+
+      thumb.forEach(element => {
+        element.border = "none";
+      })
+     
+       thumb[i].border = "2px solid var(---Orange)";
+       count = i+1;
+       
+       document.getElementById("product2").innerHTML = `
+        <img class="product" src="images/image-product-${count}.jpg" alt="">"`;
+        // document.getElementById("product").innerHTML = `
+        // <img class="product" src="images/image-product-${count}.jpg" alt="">"`;
+     });
+ }
+
+
+for (let i = 0; i < thumb2.length; i++) {
+     thumb2[i].addEventListener("click", function() {
+
+      thumb2.forEach(element => {
+        element.border = "none";
+      })
+     
+       thumb2[i].border = "2px solid var(---Orange)";
+       count = i+1;
+     
+      //  document.getElementById("product2").innerHTML = `
+      //   <img class="product" src="images/image-product-${i+1}.jpg" alt="">"`;
+        document.getElementById("product").innerHTML = `
+        <img class="product" src="images/image-product-${count}.jpg" alt="">"`;
+     });
+ }
+
+
+document.getElementsByClassName("close-lt")[0].addEventListener("click", function(){
+document.getElementsByClassName("light")[0].classList.add("hide");
+})
+
+
+
+ document.getElementById("product").addEventListener("click", function(){
+
+  console.log("unhide");
+  if (window.innerWidth > 800){
+ document.getElementsByClassName("light")[0].classList.remove("hide");
+ document.getElementById("product2").innerHTML = ` <img class="product" src="images/image-product-${count}.jpg" alt="">"`
+ thumb.forEach(element => {
+        element.border = "none";
+      })
+      thumb[count - 1].border = "2px solid var(---Orange)";
+
+  }
+ })
+
+console.log(count);
+</script>
+</body>
+</html>
