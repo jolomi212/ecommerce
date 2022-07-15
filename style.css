@@ -172,6 +172,10 @@
    width: 100vw;
 
 }
+#product{
+   height: 100vw;
+   background-color: var(---Orange);
+}
 .thumbs{
     display: none;
 }
@@ -422,9 +426,15 @@ border-radius: 0.3rem;
         width: 40%;
     }
     .product{
-        width: 75%;
+        width: 100%;
         border-radius: 2rem;
        
+    }
+    #product{
+        height: auto;
+        width: 75%;
+        border-radius: 2rem;
+        background-color: var(---White);
     }
     .scroll{
         display: none;
@@ -506,6 +516,9 @@ border-radius: 0.3rem;
     }
     .container #product2{
         width: 80%;
+        height: 32vw;
+        background-color: var(---Orange);
+        border-radius: 2rem ;
     }
     .container .product{
         width: 100%;
