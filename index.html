@@ -268,27 +268,32 @@ console.log(select);
 
 
 document.getElementsByClassName("cart")[0].addEventListener("click", function(){
+if (document.getElementById("cart-page").classList.contains("hide")){
 document.getElementById("cart-page").classList.remove("hide");
 let select = parseInt(num.innerHTML);
 let notif = document.getElementsByClassName("notif")[0];
 let current = notif.innerHTML;
 
-if (current === ""){
-  document.getElementsByClassName("order")[0].classList.add("hide");
-  document.getElementsByClassName("checkout")[0].classList.add("hide");
-  
-}
-else{
-  document.getElementsByClassName("order")[0].classList.remove("hide");
-  document.getElementsByClassName("checkout")[0].classList.remove("hide");
-  document.getElementsByClassName("empty")[0].classList.add("hide");
-  document.getElementById("entry").innerHTML = `
-  $125 * ${current}. <b>$${current * 125}</b>
-  `
+    if (current === ""){
+      document.getElementsByClassName("order")[0].classList.add("hide");
+      document.getElementsByClassName("checkout")[0].classList.add("hide");
+      
+    }
+    else{
+      document.getElementsByClassName("order")[0].classList.remove("hide");
+      document.getElementsByClassName("checkout")[0].classList.remove("hide");
+      document.getElementsByClassName("empty")[0].classList.add("hide");
+      document.getElementById("entry").innerHTML = `
+      $125 * ${current}. <b>$${current * 125}</b>
+      `
 
 
-}
+    }
+  }
 
+  else{
+    document.getElementById("cart-page").classList.add("hide");
+  }
 })
 
 
